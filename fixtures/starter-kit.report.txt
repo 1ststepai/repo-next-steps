@@ -1,0 +1,43 @@
+Repo Next Steps — 1stStep.ai
+
+This is a plain-English checklist of what this public repo needs next.
+It is not a score, not a grade, and not a security certification.
+Demo mode: using a saved snapshot, so you can see a sample without guessing.
+
+Looking at: 1ststepai/ai-user-starter-kit
+Page: https://github.com/1ststepai/ai-user-starter-kit
+Main copy (default branch): main
+Last saved change: 21 September 2026
+
+Do next
+=======
+
+1. Soon — Add a simple .gitignore
+   Why it matters: A .gitignore is a list of leftover files Git should not save, like .env or __pycache__. It keeps junk — and often secrets — out of the repo.
+   Good enough for week one: A short list: .env, plus one line for your language (__pycache__/ for Python, node_modules/ for JavaScript).
+   Skip for now? Okay for a repo that is only markdown or docs.
+
+2. Later — Continuous integration can wait
+   Why it matters: CI (continuous integration) is a robot that runs checks when you save changes. Handy later. Not required to learn.
+   Good enough for week one: Skip for week one. Add it when someone else will run your project, or when you have a test you want run automatically.
+   Skip for now? Skip for week one unless you are sharing with others.
+
+Looks okay
+==========
+- The README says what this project is.
+- A LICENSE is present (MIT).
+- No secret-looking filenames in the top folder (we only checked names).
+- A CONTRIBUTING note is present.
+- There is recent activity (last change 21 September 2026).
+
+Private repos
+This tool only reads public GitHub data. Private repos need a later
+consent-connect path (you would choose to connect). v1 does not log you in.
+
+Keep learning: AI User Starter Kit
+https://github.com/1ststepai/ai-user-starter-kit
+
+Optional — CodeFriends
+If you want company while you learn — not a class, not a paywall —
+https://github.com/1ststepai/codefriends
+The live invite URL may be added later. You do not need to join to use this tool.

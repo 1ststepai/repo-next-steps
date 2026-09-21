@@ -1,0 +1,151 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-09-21",
+  "asOf": "September 2026",
+  "source": "1stStep.ai published checklist rules",
+  "future": "Rules can improve on main without a new app download. v1 does not scrape private data and does not claim a security certification.",
+  "notes": "Copy and thresholds for the beginner checklist. Detection stays in Python. Voice: warm, clear, no shame, no scores.",
+  "links": {
+    "starterKit": "https://github.com/1ststepai/ai-user-starter-kit",
+    "codeFriends": "https://github.com/1ststepai/codefriends",
+    "codeFriendsInvite": ""
+  },
+  "priorityOrder": ["now", "soon", "later"],
+  "priorityLabels": {
+    "now": "Now",
+    "soon": "Soon",
+    "later": "Later"
+  },
+  "readmeMinChars": 80,
+  "staleDays": 180,
+  "sharedSignals": {
+    "minForks": 1,
+    "minStars": 5
+  },
+  "secretLooks": {
+    "exact": [
+      ".env",
+      ".env.local",
+      ".env.production",
+      ".env.development",
+      ".env.staging",
+      "credentials.json",
+      "serviceAccount.json",
+      "service-account.json",
+      "id_rsa",
+      "id_ed25519",
+      "secrets.json",
+      "secret.json"
+    ],
+    "suffixes": [".pem"],
+    "okExact": [
+      ".env.example",
+      ".env.sample",
+      ".env.template",
+      ".env.example.local",
+      "credentials.example.json",
+      "id_rsa.pub",
+      "id_ed25519.pub"
+    ]
+  },
+  "ciPaths": [
+    ".github/workflows",
+    ".travis.yml",
+    ".travis.yaml",
+    "circle.yml",
+    ".circleci",
+    "Jenkinsfile",
+    "azure-pipelines.yml",
+    ".gitlab-ci.yml",
+    "bitbucket-pipelines.yml",
+    "build.yml",
+    ".buildkite"
+  ],
+  "licenseNames": [
+    "LICENSE",
+    "LICENSE.md",
+    "LICENSE.txt",
+    "COPYING",
+    "COPYING.md",
+    "UNLICENSE"
+  ],
+  "contributingNames": [
+    "CONTRIBUTING.md",
+    "CONTRIBUTING",
+    "CONTRIBUTING.txt"
+  ],
+  "gitignoreNames": [".gitignore"],
+  "checks": [
+    {
+      "id": "empty",
+      "title": "Add a first file — the repo looks empty",
+      "why": "GitHub has a folder for this project, but there are no files yet. One file makes it real and gives you something to open tomorrow.",
+      "goodEnough": "Add a README that says what you are trying to make — even three sentences is enough.",
+      "skipOk": "If you just created the repo and are about to add files, you can ignore this.",
+      "priority": "now"
+    },
+    {
+      "id": "readme",
+      "titleMissing": "Write a README that says what this is",
+      "titleWeak": "Tell the README what this project is",
+      "whyMissing": "A README (say “read me”) is the first page people see. Without it, even you will forget what this folder is for.",
+      "whyWeak": "There is a README, but it is still just a title. A visitor cannot tell what the project does or how to try it.",
+      "goodEnough": "Three to five sentences: what it is, how to run it, and what “done” looks like for week one.",
+      "skipOk": "Skip only if this is a throwaway folder nobody else will open.",
+      "priorityMissing": "now",
+      "priorityWeak": "soon"
+    },
+    {
+      "id": "license",
+      "title": "Add a LICENSE",
+      "why": "A license is a short file that says how others may use your work. With no license, people have to assume they cannot copy or learn from the files.",
+      "goodEnough": "Pick MIT (common and friendly) using GitHub’s “Add file” helper and the license template.",
+      "skipOk": "Okay if you are the only person who will ever use these files.",
+      "priority": "soon",
+      "priorityIfShared": "now"
+    },
+    {
+      "id": "secrets",
+      "title": "Double-check a secret-looking file",
+      "why": "We saw a file named {names}. That name often holds passwords or API keys (secret codes that let a computer into an account). This is not a security audit — just a careful look at the filename. We did not open the file.",
+      "goodEnough": "If the file has real secrets, remove it from the repo and put the name in a .gitignore (a list of files Git should not save). If it is empty or a template, you can ignore this.",
+      "skipOk": "Skip if you already know the file is a fake example.",
+      "priority": "now"
+    },
+    {
+      "id": "gitignore",
+      "title": "Add a simple .gitignore",
+      "why": "A .gitignore is a list of leftover files Git should not save, like .env or __pycache__. It keeps junk — and often secrets — out of the repo.",
+      "goodEnough": "A short list: .env, plus one line for your language (__pycache__/ for Python, node_modules/ for JavaScript).",
+      "skipOk": "Okay for a repo that is only markdown or docs.",
+      "priority": "soon"
+    },
+    {
+      "id": "ci",
+      "title": "Continuous integration can wait",
+      "why": "CI (continuous integration) is a robot that runs checks when you save changes. Handy later. Not required to learn.",
+      "goodEnough": "Skip for week one. Add it when someone else will run your project, or when you have a test you want run automatically.",
+      "skipOk": "Skip for week one unless you are sharing with others.",
+      "priority": "later"
+    },
+    {
+      "id": "community",
+      "titleIssues": "Your issue list could use a sentence each",
+      "titleContributing": "A short note on how people can help",
+      "whyIssues": "Issues are the to-do notes attached to the repo. There are {count} open. A one-line “what done looks like” on each helps future-you.",
+      "whyContributing": "Other people have already copied (forked) or starred this repo. A CONTRIBUTING file is a short “here is how to help” note.",
+      "goodEnoughIssues": "Open the oldest issue and write what “done” means in one sentence.",
+      "goodEnoughContributing": "Five lines: how to open an issue, and that small fixes are welcome.",
+      "skipOk": "Skip if you do not want help yet, or if those issues are leftover.",
+      "priority": "later"
+    },
+    {
+      "id": "stale",
+      "title": "The repo has been quiet — that is okay",
+      "why": "The last saved change (a commit is a snapshot of your files) was {when}. Projects pause. This is not a warning.",
+      "goodEnough": "A one-line README update is enough if you want the date to look fresh. You do not have to.",
+      "skipOk": "Skip if you are done with this project, or just resting.",
+      "priority": "later"
+    }
+  ]
+}

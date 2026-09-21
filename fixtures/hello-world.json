@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-09-21",
+  "sourceUrl": "https://github.com/octocat/Hello-World",
+  "note": "Saved snapshot of a well-known tiny public repo so --demo works offline.",
+  "repo": {
+    "full_name": "octocat/Hello-World",
+    "private": false,
+    "description": "My first repository on GitHub!",
+    "fork": false,
+    "created_at": "2011-01-26T19:01:12Z",
+    "updated_at": "2026-09-20T20:35:43Z",
+    "pushed_at": "2024-08-20T23:54:42Z",
+    "size": 1,
+    "stargazers_count": 3824,
+    "forks_count": 6831,
+    "has_issues": true,
+    "archived": false,
+    "open_issues_count": 7212,
+    "license": null,
+    "default_branch": "master",
+    "html_url": "https://github.com/octocat/Hello-World"
+  },
+  "contents": [
+    {"name": "README", "type": "file", "size": 13}
+  ],
+  "readme": {
+    "name": "README",
+    "size": 13,
+    "text": "Hello World!\n"
+  },
+  "gitignore": null,
+  "workflows": null
+}

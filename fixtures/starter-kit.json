@@ -1,0 +1,44 @@
+{
+  "capturedAt": "2026-09-21",
+  "sourceUrl": "https://github.com/1ststepai/ai-user-starter-kit",
+  "note": "A healthier public repo snapshot — README, LICENSE, contributing; no CI yet.",
+  "repo": {
+    "full_name": "1ststepai/ai-user-starter-kit",
+    "private": false,
+    "description": "Free first-week toolkit for new AI coding users — map, playbook, safety, soft community invite. Built by 1stStep.ai",
+    "fork": false,
+    "created_at": "2026-09-21T00:29:45Z",
+    "updated_at": "2026-09-21T01:11:40Z",
+    "pushed_at": "2026-09-21T01:11:37Z",
+    "size": 0,
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "has_issues": true,
+    "archived": false,
+    "open_issues_count": 0,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT"
+    },
+    "default_branch": "main",
+    "html_url": "https://github.com/1ststepai/ai-user-starter-kit"
+  },
+  "contents": [
+    {"name": "CONTRIBUTING.md", "type": "file"},
+    {"name": "LICENSE", "type": "file"},
+    {"name": "README.md", "type": "file"},
+    {"name": "data", "type": "dir"},
+    {"name": "docs", "type": "dir"},
+    {"name": "index.html", "type": "file"},
+    {"name": "scripts", "type": "dir"},
+    {"name": "skills", "type": "dir"}
+  ],
+  "readme": {
+    "name": "README.md",
+    "size": 5008,
+    "text": "AI User Starter Kit\n\nA free first-week guide for people who just started coding with AI.\n\nPick one tool. Ship one small project. Learn the habits that keep you safe and in control.\n\nNo signup. No sales call. Read it in a sitting, use it for a week.\n\nBuilt by 1stStep.ai.\n"
+  },
+  "gitignore": null,
+  "workflows": null
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repo Next Steps — 1stStep.ai</title>
+  <style>
+    :root {
+      --ink: #1c1917;
+      --muted: #57534e;
+      --paper: #faf7f2;
+      --card: #fffdf8;
+      --line: #e7e0d6;
+      --accent: #0f766e;
+      --accent-ink: #134e4a;
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 18px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1rem; }
+    h2 { font-size: 1.25rem; margin: 2.25rem 0 0.75rem; }
+    p, li { margin: 0 0 0.85rem; }
+    ol, ul { padding-left: 1.2rem; }
+    a { color: var(--accent-ink); }
+    a:hover { color: var(--accent); }
+    .lede { font-size: 1.05rem; }
+    .byline { color: var(--muted); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.1rem 0.25rem;
+      margin: 1.25rem 0;
+    }
+    pre {
+      overflow: auto;
+      background: #efe8dc;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    code {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      background: #efe8dc;
+      padding: 0.1em 0.35em;
+      border-radius: 4px;
+    }
+    pre code { background: none; padding: 0; }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Repo Next Steps</h1>
+    <p class="lede">Paste a public GitHub URL. Get a plain-English checklist of what to do next.</p>
+    <p>Not a score. Not a security certification. Not a reason to hire anyone.</p>
+    <p class="byline">Built by <a href="https://1ststep.ai">1stStep.ai</a>.</p>
+
+    <h2>How to run it (30 seconds)</h2>
+    <p>This page does not analyze a repo for you. There is no login and no server. You run a small Python script on your computer.</p>
+    <div class="card">
+      <p>You need Python 3. Nothing to install.</p>
+      <pre><code>git clone https://github.com/1ststepai/repo-next-steps
+cd repo-next-steps
+python3 -m repo_next_steps --demo</code></pre>
+      <p>Then, with a <strong>public</strong> repo:</p>
+      <pre><code>python3 -m repo_next_steps https://github.com/owner/repo</code></pre>
+      <p>Same thing: <code>python3 scripts/check.py https://github.com/owner/repo</code></p>
+    </div>
+    <p>You will know it worked when you see a numbered <strong>Do next</strong> list labeled Now / Soon / Later.</p>
+    <p>Private repos are out of scope for v1. They need a later consent-connect path. Do not paste private tokens here.</p>
+
+    <h2>What each item looks like</h2>
+    <p>A short title. One sentence on why it matters. What “good enough for week one” looks like. When it is okay to skip.</p>
+
+    <h2>Sample report</h2>
+    <p>This is the real <code>--demo</code> output for <a href="https://github.com/octocat/Hello-World">octocat/Hello-World</a>, a tiny public repo GitHub uses as an example. Saved so you do not have to guess.</p>
+    <pre><code>Repo Next Steps — 1stStep.ai
+
+This is a plain-English checklist of what this public repo needs next.
+It is not a score, not a grade, and not a security certification.
+Demo mode: using a saved snapshot, so you can see a sample without guessing.
+
+Looking at: octocat/Hello-World
+Page: https://github.com/octocat/Hello-World
+Main copy (default branch): master
+Last saved change: 20 August 2024
+
+Do next
+=======
+
+1. Now — Add a LICENSE
+   Why it matters: A license is a short file that says how others may use your work. With no license, people have to assume they cannot copy or learn from the files.
+   Good enough for week one: Pick MIT (common and friendly) using GitHub’s “Add file” helper and the license template.
+   Skip for now? Okay if you are the only person who will ever use these files.
+
+2. Soon — Tell the README what this project is
+   Why it matters: There is a README, but it is still just a title. A visitor cannot tell what the project does or how to try it. GitHub already has a one-line description you can paste in and expand.
+   Good enough for week one: Three to five sentences: what it is, how to run it, and what “done” looks like for week one.
+   Skip for now? Skip only if this is a throwaway folder nobody else will open.
+
+3. Soon — Add a simple .gitignore
+   Why it matters: A .gitignore is a list of leftover files Git should not save, like .env or __pycache__. It keeps junk — and often secrets — out of the repo.
+   Good enough for week one: A short list: .env, plus one line for your language (__pycache__/ for Python, node_modules/ for JavaScript).
+   Skip for now? Okay for a repo that is only markdown or docs.
+
+4. Later — Continuous integration can wait
+   Why it matters: CI (continuous integration) is a robot that runs checks when you save changes. Handy later. Not required to learn.
+   Good enough for week one: Skip for week one. Add it when someone else will run your project, or when you have a test you want run automatically.
+   Skip for now? Skip for week one unless you are sharing with others.
+
+5. Later — Your issue list could use a sentence each
+   Why it matters: Issues are the to-do notes attached to the repo. There are 7212 open. A one-line “what done looks like” on each helps future-you.
+   Good enough for week one: Open the oldest issue and write what “done” means in one sentence.
+   Skip for now? Skip if you do not want help yet, or if those issues are leftover.
+
+6. Later — A short note on how people can help
+   Why it matters: Other people have already copied (forked) or starred this repo. A CONTRIBUTING file is a short “here is how to help” note.
+   Good enough for week one: Five lines: how to open an issue, and that small fixes are welcome.
+   Skip for now? Skip if you do not want help yet, or if those issues are leftover.
+
+7. Later — The repo has been quiet — that is okay
+   Why it matters: The last saved change (a commit is a snapshot of your files) was 20 August 2024. Projects pause. This is not a warning.
+   Good enough for week one: A one-line README update is enough if you want the date to look fresh. You do not have to.
+   Skip for now? Skip if you are done with this project, or just resting.
+
+Looks okay
+==========
+- No secret-looking filenames in the top folder (we only checked names).</code></pre>
+
+    <h2>Keep it current</h2>
+    <p>Checklist wording lives in <code>data/rules.json</code>. When that file changes on <code>main</code>:</p>
+    <pre><code>python3 scripts/update-rules.py</code></pre>
+    <p>No packages. No account. You do not need a new download of the whole tool.</p>
+
+    <h2>Keep learning</h2>
+    <p>If GitHub still feels new, start with the <a href="https://github.com/1ststepai/ai-user-starter-kit">AI User Starter Kit</a> — a free first-week map, playbook, and safety notes.</p>
+
+    <div class="card">
+      <h2 style="margin-top:0">Optional: CodeFriends</h2>
+      <p>If you want company while you learn — not a class, not a paywall — <a href="https://github.com/1ststepai/codefriends">CodeFriends</a> is a small, optional community.</p>
+      <p>The live invite URL may be added later. You do not need to join to use this tool.</p>
+    </div>
+
+    <footer>
+      <a href="https://github.com/1ststepai/repo-next-steps">github.com/1ststepai/repo-next-steps</a>
+      · MIT · Built by 1stStep.ai
+    </footer>
+  </main>
+</body>
+</html>
