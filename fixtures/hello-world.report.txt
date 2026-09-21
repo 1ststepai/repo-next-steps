@@ -1,0 +1,64 @@
+Repo Next Steps — 1stStep.ai
+
+This is a plain-English checklist of what this public repo needs next.
+It is not a score, not a grade, and not a security certification.
+Demo mode: using a saved snapshot, so you can see a sample without guessing.
+
+Looking at: octocat/Hello-World
+Page: https://github.com/octocat/Hello-World
+Main copy (default branch): master
+Last saved change: 20 August 2024
+
+Do next
+=======
+
+1. Now — Add a LICENSE
+   Why it matters: A license is a short file that says how others may use your work. With no license, people have to assume they cannot copy or learn from the files.
+   Good enough for week one: Pick MIT (common and friendly) using GitHub’s “Add file” helper and the license template.
+   Skip for now? Okay if you are the only person who will ever use these files.
+
+2. Soon — Tell the README what this project is
+   Why it matters: There is a README, but it is still just a title. A visitor cannot tell what the project does or how to try it. GitHub already has a one-line description you can paste in and expand.
+   Good enough for week one: Three to five sentences: what it is, how to run it, and what “done” looks like for week one.
+   Skip for now? Skip only if this is a throwaway folder nobody else will open.
+
+3. Soon — Add a simple .gitignore
+   Why it matters: A .gitignore is a list of leftover files Git should not save, like .env or __pycache__. It keeps junk — and often secrets — out of the repo.
+   Good enough for week one: A short list: .env, plus one line for your language (__pycache__/ for Python, node_modules/ for JavaScript).
+   Skip for now? Okay for a repo that is only markdown or docs.
+
+4. Later — Continuous integration can wait
+   Why it matters: CI (continuous integration) is a robot that runs checks when you save changes. Handy later. Not required to learn.
+   Good enough for week one: Skip for week one. Add it when someone else will run your project, or when you have a test you want run automatically.
+   Skip for now? Skip for week one unless you are sharing with others.
+
+5. Later — Your issue list could use a sentence each
+   Why it matters: Issues are the to-do notes attached to the repo. There are 7212 open. A one-line “what done looks like” on each helps future-you.
+   Good enough for week one: Open the oldest issue and write what “done” means in one sentence.
+   Skip for now? Skip if you do not want help yet, or if those issues are leftover.
+
+6. Later — A short note on how people can help
+   Why it matters: Other people have already copied (forked) or starred this repo. A CONTRIBUTING file is a short “here is how to help” note.
+   Good enough for week one: Five lines: how to open an issue, and that small fixes are welcome.
+   Skip for now? Skip if you do not want help yet, or if those issues are leftover.
+
+7. Later — The repo has been quiet — that is okay
+   Why it matters: The last saved change (a commit is a snapshot of your files) was 20 August 2024. Projects pause. This is not a warning.
+   Good enough for week one: A one-line README update is enough if you want the date to look fresh. You do not have to.
+   Skip for now? Skip if you are done with this project, or just resting.
+
+Looks okay
+==========
+- No secret-looking filenames in the top folder (we only checked names).
+
+Private repos
+This tool only reads public GitHub data. Private repos need a later
+consent-connect path (you would choose to connect). v1 does not log you in.
+
+Keep learning: AI User Starter Kit
+https://github.com/1ststepai/ai-user-starter-kit
+
+Optional — CodeFriends
+If you want company while you learn — not a class, not a paywall —
+https://github.com/1ststepai/codefriends
+The live invite URL may be added later. You do not need to join to use this tool.
