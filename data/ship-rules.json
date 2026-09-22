@@ -1,13 +1,16 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "updatedAt": "2026-09-22",
-  "goal": "Keep shipping by closing the loop on started work. Never silent-merge.",
+  "goal": "Close the loop on started work. Never silent-merge. Never fold one idea into another PR.",
   "staleDays": 7,
   "stackWarn": 5,
+  "auditPicks": true,
+  "neverAutoMerge": true,
   "actions": {
-    "finish": "One ready or newest draft PR on a crowded repo — review and land or close.",
-    "park": "Leave extra drafts. Do not open a new agent on the same repo.",
-    "stop": "Title matches work already on main, or PR is empty/stale with no commits — close or stop the agent.",
-    "wait": "Draft younger than staleDays — do not nag."
+    "finish": "Review this exact PR. Merge it or close it. Do not dump its commits onto another branch.",
+    "park": "Leave extra drafts. No new agent on this repo.",
+    "stop": "Stale, empty, inventory, or duplicate of main — close with one sentence, or stop the agent.",
+    "wait": "Young draft. Do not nag. Do not squash into the finish pick.",
+    "hard_gate": "Secrets, draft, dirty merge, or missing audit. Do not merge."
   }
 }
