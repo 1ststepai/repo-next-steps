@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "updatedAt": "2026-09-22",
+  "goal": "Keep shipping by closing the loop on started work. Never silent-merge.",
+  "staleDays": 7,
+  "stackWarn": 5,
+  "actions": {
+    "finish": "One ready or newest draft PR on a crowded repo — review and land or close.",
+    "park": "Leave extra drafts. Do not open a new agent on the same repo.",
+    "stop": "Title matches work already on main, or PR is empty/stale with no commits — close or stop the agent.",
+    "wait": "Draft younger than staleDays — do not nag."
+  }
+}
