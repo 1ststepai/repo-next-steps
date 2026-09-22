@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Ship Desk — unfinished GitHub work for one owner.
 
-Finds open/draft PRs, ages them, and prints finish / park / stop.
-Does not merge, close, or launch agents.
+Finds open/draft PRs, ages them, audits the finish pick, and prints
+finish / park / stop. Does not merge, close, or launch agents.
 """
 
 from __future__ import annotations
@@ -15,6 +15,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+from repo_next_steps.audit import audit, format_audit
 from repo_next_steps.work_board import _repo_name, fetch_open_prs
 
 RULES_PATH = Path(__file__).resolve().parents[1] / "data" / "ship-rules.json"
@@ -23,7 +24,7 @@ RULES_PATH = Path(__file__).resolve().parents[1] / "data" / "ship-rules.json"
 def load_rules() -> Dict[str, Any]:
     if RULES_PATH.is_file():
         return json.loads(RULES_PATH.read_text(encoding="utf-8"))
-    return {"staleDays": 7, "stackWarn": 5}
+    return {"staleDays": 7, "stackWarn": 5, "auditPicks": True}
 
 
 def _age_days(iso: str) -> int:
@@ -63,6 +64,7 @@ def classify(item: Dict[str, Any], stale_days: int) -> str:
 def plan(owner: str, items: List[Dict[str, Any]], rules: Dict[str, Any]) -> str:
     stale = int(rules.get("staleDays") or 7)
     stack_warn = int(rules.get("stackWarn") or 5)
+    do_audit = bool(rules.get("auditPicks", True))
     by_repo: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
     for it in items:
         by_repo[_repo_name(it)].append(it)
@@ -71,13 +73,14 @@ def plan(owner: str, items: List[Dict[str, Any]], rules: Dict[str, Any]) -> str:
         f"# Ship Desk — {owner}",
         "",
         "Unfinished pull requests. Advisory. Nothing was merged or closed.",
+        "One idea stays on its own PR. Do not fold a parked draft into the finish pick.",
         "",
         f"Open PRs: {len(items)} across {len(by_repo)} repos. Stale after {stale} days.",
         "",
         "## Finish today (at most one per repo)",
         "",
     ]
-    finish_count = 0
+    audited = 0
     for repo in sorted(by_repo, key=lambda r: -len(by_repo[r])):
         group = by_repo[repo]
         ranked: List[Tuple[str, Dict[str, Any]]] = [
@@ -92,35 +95,45 @@ def plan(owner: str, items: List[Dict[str, Any]], rules: Dict[str, Any]) -> str:
         extra = len(group) - 1
         age = _age_days(pick.get("updated_at") or "")
         draft = "draft" if pick.get("draft") else "open"
+        num = pick.get("number")
         lines.append(
-            f"- **{owner}/{repo}** → {tag} [{draft}] #{pick.get('number')} "
+            f"- **{owner}/{repo}** → {tag} [{draft}] #{num} "
             f"{pick.get('title')} ({age}d) — {pick.get('html_url')}"
         )
         if extra:
-            lines.append(f"  park {extra} other open PR(s) on this repo.")
+            lines.append(
+                f"  park {extra} other open PR(s). Do not squash them into #{num}."
+            )
         if len(group) >= stack_warn:
             lines.append("  stack is too tall — no new agents here until this shrinks.")
-        finish_count += 1
+        if do_audit and tag == "finish" and audited < 8 and isinstance(num, int):
+            result = audit(owner, repo, num)
+            lines.append("")
+            lines.append(format_audit(owner, repo, num, result).rstrip())
+            audited += 1
+        lines.append("")
     if not by_repo:
         lines.append("_No open PRs. Do not invent work._")
+        lines.append("")
 
-    lines += ["", "## Stop or close (stale drafts / likely duplicates)", ""]
+    lines += ["## Stop or close (stale drafts / likely duplicates)", ""]
     stops = [it for it in items if classify(it, stale) == "stop"]
     if not stops:
         lines.append("_None flagged._")
     for it in stops[:20]:
         lines.append(
-            f"- { _repo_name(it) } #{it.get('number')} {it.get('title')} — {it.get('html_url')}"
+            f"- {_repo_name(it)} #{it.get('number')} {it.get('title')} — {it.get('html_url')}"
         )
 
     lines += [
         "",
         "## Rules",
         "",
-        "1. Finish or explicitly park. Do not start a parallel agent on the same repo.",
-        "2. Draft stacks are unfinished work, not a backlog to merge at 8am.",
-        "3. Closing a stale draft is shipping too — it clears the idea or admits it died.",
-        "4. The user confirms every merge and every close.",
+        "1. Finish this PR or close it. Do not pour it into the next branch.",
+        "2. Audit before merge: draft, dirty merge, secrets, auth/payment, huge mixed title.",
+        "3. hard_gate means do not merge even if the user is in a hurry.",
+        "4. Parked drafts stay parked until they get their own review.",
+        "5. Closing with one sentence is allowed. Silent merge is not.",
         "",
     ]
     return "\n".join(lines) + "\n"
